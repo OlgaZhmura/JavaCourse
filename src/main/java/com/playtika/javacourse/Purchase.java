@@ -7,7 +7,7 @@ package com.playtika.javacourse;
 
 import java.util.Scanner;
 
-public class Store {
+public class Purchase {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
