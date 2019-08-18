@@ -10,9 +10,7 @@
 Используя циклы for легко можно выровнять стороны рамки.
 "Строка".length()
  */
-
 package javacourse.homework;
-
 import java.util.Scanner;
 
 public class HW2Task1 {
@@ -22,20 +20,7 @@ public class HW2Task1 {
         String student = "Студент";
         String fio = getInput();
 
-        if(fio.length() >= courseName.length()){
-            drawStars(fio.length());
-            writeText(fio.length(), courseName);
-            writeText(fio.length(), student);
-            writeText(fio.length(), fio);
-            drawStars(fio.length());
-        }
-        else{
-            drawStars(courseName.length());
-            writeText(courseName.length(), courseName);
-            writeText(courseName.length(), student);
-            writeText(courseName.length(), fio);
-            drawStars(courseName.length());
-        }
+        printResult(courseName, student, fio);
     }
 
     public static String getInput (){
@@ -69,5 +54,22 @@ public class HW2Task1 {
             System.out.printf(" ");
         }
         System.out.printf(" *");
+    }
+
+    public static void printResult(String courseName, String student, String fio){
+        if(fio.length() >= courseName.length()){
+            drawStars(fio.length());
+            writeText(fio.length(), courseName);
+            writeText(fio.length(), student);
+            writeText(fio.length(), fio);
+            drawStars(fio.length());
+        }
+        else{
+            drawStars(courseName.length());
+            writeText(courseName.length(), courseName);
+            writeText(courseName.length(), student);
+            writeText(courseName.length(), fio);
+            drawStars(courseName.length());
+        }
     }
 }
