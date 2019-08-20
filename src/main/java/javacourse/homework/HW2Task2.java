@@ -17,11 +17,10 @@ public class HW2Task2 {
     }
 
     public static long getInput (){
-        long number = 0;
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Please, enter a positive number:");
-        number = scan.nextLong();
+        long number = scan.nextLong();
         while(number < 0)
         {
             System.out.println("This value is not a positive number, please, try again.");
@@ -30,52 +29,27 @@ public class HW2Task2 {
         return number;
     }
 
-    public static int findMin (long num){
-        int min = 0;
-        int temp = 0;
-
-        temp = (int)(num % 10);
-        min = temp;
+    public static int[] findMinMax (long num){
+        int temp = (int)(num % 10);
+        int min;
+        int max = min = temp;
 
         while (num > 0){
-            if(min == 0){
-                return min;
+            if(min > temp){
+                min = temp;
             }
-            else {
-                if(min > temp){
-                    min = temp;
-                }
-                num /= 10;
-                temp = (int)(num %10);
+            if(max < temp){
+                max = temp;
             }
+            num /= 10;
+            temp = (int)(num %10);
         }
-        return min;
-    }
-
-    public static int findMax (long num){
-        int max = 0;
-        int temp = 0;
-
-        temp = (int)(num % 10);
-        max = temp;
-
-        while (num > 0){
-            if(max == 9){
-               return max;
-            }
-            else {
-                if(max < temp){
-                    max = temp;
-                }
-                num /= 10;
-                temp = (int)(num %10);
-            }
-        }
-        return max;
+        return new int[] {min, max};
     }
 
     public static void displayResult(long input){
-        System.out.printf("\nThe minimum digit of the number is %d", findMin(input));
-        System.out.printf("\nThe maximum digit of the number is %d", findMax(input));
+        int[] numMinMax = findMinMax(input);
+
+        System.out.printf("\nThe minimum digit of the number is %d and the maximum is %d", numMinMax[0], numMinMax[1]);
     }
 }

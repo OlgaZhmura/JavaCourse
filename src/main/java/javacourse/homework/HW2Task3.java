@@ -16,10 +16,9 @@ public class HW2Task3 {
 
     public static int getInput(){
         Scanner scan = new Scanner(System.in);
-        int number = 0;
 
         System.out.println("Please, enter the number of developers: ");
-        number = scan.nextInt();
+        int number = scan.nextInt();
         while(number < 0)
         {
             System.out.println("This value is not a positive number, please, try again.");
@@ -29,14 +28,10 @@ public class HW2Task3 {
     }
 
     public static int countInterviews(int num){
-        int result = 0;
-
-
         if (num == 1){
             return 0;
         }
-        result = countInterviews(num - 1) + num - 1;
-        return result;
+        return countInterviews(num - 1) + num - 1;
     }
 
     public static void displayResult(int input){

@@ -15,12 +15,15 @@ import java.util.Scanner;
 
 public class HW2Task1 {
 
-    public static void main(String[] args) {
-        String courseName = "Курс: Java core";
-        String student = "Студент";
+    static final String COURSE_NAME = "Курс: Java core";
+    static final String STUDENT = "Студент";
+    static final int BORDER = 4;
+
+    public static void main (String[] args) {
+
         String fio = getInput();
 
-        printResult(courseName, student, fio);
+        printResult(fio);
     }
 
     public static String getInput (){
@@ -35,13 +38,13 @@ public class HW2Task1 {
 
     public static void drawStars (int lenth){
         System.out.println();
-        for(int i=0; i<lenth+4; i++){
+        for(int i=0; i<lenth+BORDER; i++){
             System.out.printf("*");
         }
     }
 
     public static void writeText(int lenth, String str){
-        lenth += 4;
+        lenth += BORDER;
         int leftSide = (lenth - str.length()) / 2;
         int rightSide = lenth - str.length() - leftSide;
 
@@ -56,20 +59,17 @@ public class HW2Task1 {
         System.out.printf(" *");
     }
 
-    public static void printResult(String courseName, String student, String fio){
-        if(fio.length() >= courseName.length()){
-            drawStars(fio.length());
-            writeText(fio.length(), courseName);
-            writeText(fio.length(), student);
-            writeText(fio.length(), fio);
-            drawStars(fio.length());
+    public static void printResult(String fio){
+        int maxLenth = COURSE_NAME.length();
+
+        if(fio.length() >= maxLenth){
+           maxLenth = fio.length();
         }
-        else{
-            drawStars(courseName.length());
-            writeText(courseName.length(), courseName);
-            writeText(courseName.length(), student);
-            writeText(courseName.length(), fio);
-            drawStars(courseName.length());
-        }
+
+        drawStars(maxLenth);
+        writeText(maxLenth, COURSE_NAME);
+        writeText(maxLenth, STUDENT);
+        writeText(maxLenth, fio);
+        drawStars(maxLenth);
     }
 }
