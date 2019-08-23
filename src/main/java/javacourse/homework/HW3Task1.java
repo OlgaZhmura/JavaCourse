@@ -12,18 +12,21 @@ public class HW3Task1 {
     public static String getInput() {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Please, enter any text:");
+        System.out.println("Please, enter any value:");
         String input = scan.nextLine();
+
         while (input.length() <= 1) {
-            System.out.println("The text must contain more than one character, please try again.");
+            System.out.println("The value must contain more than one character, please try again:");
             input = scan.nextLine();
         }
         return input;
     }
 
     public static boolean isPolindrom(String string) {
-        for(int i = 0; i < string.length() / 2; i++) {
-            if(!String.valueOf(string.charAt(i)).equals(String.valueOf(string.charAt(string.length()-i-1)))) {
+        int length = string.length();
+
+        for(int i = 0; i < length / 2; i++) {
+            if(string.charAt(i) != string.charAt(length-i-1)) {
                 return false;
             }
         }
@@ -38,7 +41,7 @@ public class HW3Task1 {
         }
         StringBuilder substring = new StringBuilder(str.substring(midIndex, str.length()));
         substring = substring.reverse();
-        if(str.substring(0, str.length()/2).equals(String.valueOf(substring))) {
+        if(str.substring(0, str.length()/2).equals(substring.toString())) {
             return true;
         }
         else {
