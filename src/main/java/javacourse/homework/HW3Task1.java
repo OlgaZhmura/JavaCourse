@@ -33,7 +33,8 @@ public class HW3Task1 {
         return true;
     }
 
-    public static boolean isPolindroAnotherWay(String str) {
+    //this way is slower and bigger
+    /*public static boolean isPolindroAnotherWay(String str) {
         int midIndex = str.length() / 2;
 
         if(str.length() % 2 != 0) {
@@ -47,7 +48,7 @@ public class HW3Task1 {
         else {
             return false;
         }
-    }
+    }*/
 
     public static void displayResult(boolean numIsPolindrom) {
         System.out.println(numIsPolindrom);
@@ -56,6 +57,6 @@ public class HW3Task1 {
     public static void main(String[] args) {
         String string = getInput();
         displayResult(isPolindrom(string));
-        displayResult(isPolindroAnotherWay(string));
+        //displayResult(isPolindroAnotherWay(string));
     }
 }
