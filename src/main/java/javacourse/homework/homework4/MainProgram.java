@@ -89,7 +89,7 @@ public class MainProgram {
         int count = 0;
 
         for (int i = 0; i < trngls.length; i++) {
-            if (trngls[i].defineTypeTriangle() == typeTrngl) {
+            if (trngls[i].getTypeTriangle() == typeTrngl) {
                 printTemplateResult(trngls[i], i);
                 count++;
             }
@@ -110,20 +110,21 @@ public class MainProgram {
         int[] amount = new int[4];
 
         for (int i = 0; i < trngls.length; i++) {
-            if (trngls[i].isIsoscelesTriangle()) {
-                amount[0] += 1;
-            } else {
-                if (trngls[i].isEquilateralTriangle()) {
+            int trnglType = trngls[i].getTypeTriangle();
+
+            switch (trnglType) {
+                case Triangle.TYPE_ISOSCELES:
+                    amount[0] += 1;
+                    break;
+                case Triangle.TYPE_EQUILATERAL:
                     amount[1] += 1;
-                } else {
-                    if (trngls[i].isRightTriangle()) {
-                        amount[2] += 1;
-                    } else {
-                        if (trngls[i].isArbitraryTriangle()) {
-                            amount[3] += 1;
-                        }
-                    }
-                }
+                    break;
+                case Triangle.TYPE_RIGHT:
+                    amount[2] += 1;
+                    break;
+                case Triangle.TYPE_ARBITRARY:
+                    amount[3] += 1;
+                    break;
             }
         }
         return amount;

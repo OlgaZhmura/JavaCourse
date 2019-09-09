@@ -2,14 +2,14 @@ package javacourse.homework.homework4;
 
 public class Triangle {
 
-    public static final int TYPE_ISOSCELES = 1;
-    public static final int TYPE_EQUILATERAL = 2;
-    public static final int TYPE_RIGHT = 3;
-    public static final int TYPE_ARBITRARY = 4;
+    public static final int TYPE_ISOSCELES = 0;
+    public static final int TYPE_EQUILATERAL = 1;
+    public static final int TYPE_RIGHT = 2;
+    public static final int TYPE_ARBITRARY = 3;
 
-    private Point a;
-    private Point b;
-    private Point c;
+    private final Point a;
+    private final Point b;
+    private final Point c;
 
     public Triangle(Point p1, Point p2, Point p3) {
         this.a = p1;
@@ -24,7 +24,7 @@ public class Triangle {
                ") c(" + c.getX() + "; " + c.getY() + ")]";
     }
 
-    public int defineTypeTriangle() {
+    public int getTypeTriangle() {
         if (isIsoscelesTriangle()) {
             return TYPE_ISOSCELES;
         }
@@ -49,7 +49,7 @@ public class Triangle {
         return Math.round(square * 10) / 10.f;
     }
 
-    public boolean isIsoscelesTriangle() {
+    private boolean isIsoscelesTriangle() {
         float ab = a.getDistance(b);
         float bc = b.getDistance(c);
         float ac = a.getDistance(c);
@@ -65,7 +65,7 @@ public class Triangle {
         }
     }
 
-    public boolean isEquilateralTriangle() {
+    private boolean isEquilateralTriangle() {
         float ab = a.getDistance(b);
         float bc = b.getDistance(c);
         float ac = a.getDistance(c);
@@ -73,7 +73,7 @@ public class Triangle {
         return (ab == bc && bc == ac && ab == ac);
     }
 
-    public boolean isRightTriangle() {
+    private boolean isRightTriangle() {
         double ab = Math.round(Math.pow(a.getDistance(b), 2));
         double bc = Math.round(Math.pow(b.getDistance(c), 2));
         double ac = Math.round(Math.pow(a.getDistance(c), 2));
@@ -89,7 +89,7 @@ public class Triangle {
         }
     }
 
-    public boolean isArbitraryTriangle() {
+    private boolean isArbitraryTriangle() {
         float ab = a.getDistance(b);
         float bc = b.getDistance(c);
         float ac = a.getDistance(c);
