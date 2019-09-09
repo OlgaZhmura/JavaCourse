@@ -114,16 +114,16 @@ public class MainProgram {
 
             switch (trnglType) {
                 case Triangle.TYPE_ISOSCELES:
-                    amount[0] += 1;
+                    amount[Triangle.TYPE_ISOSCELES] += 1;
                     break;
                 case Triangle.TYPE_EQUILATERAL:
-                    amount[1] += 1;
+                    amount[Triangle.TYPE_EQUILATERAL] += 1;
                     break;
                 case Triangle.TYPE_RIGHT:
-                    amount[2] += 1;
+                    amount[Triangle.TYPE_RIGHT] += 1;
                     break;
                 case Triangle.TYPE_ARBITRARY:
-                    amount[3] += 1;
+                    amount[Triangle.TYPE_ARBITRARY] += 1;
                     break;
             }
         }
