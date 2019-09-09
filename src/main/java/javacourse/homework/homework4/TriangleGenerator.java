@@ -7,12 +7,14 @@ public class TriangleGenerator {
     public Triangle[] generateTriangles() {
         Triangle[] triangles = new Triangle[100000];
         Triangle temp;
+        int index = 0;
 
-        for (int i = 0; i < triangles.length; i++) {
-            do {
-                temp = new Triangle(new Point (generateNum(), generateNum()), new Point (generateNum(), generateNum()), new Point (generateNum(), generateNum()));
-            } while (temp.getSquare() == 0);
-            triangles[i] = temp;
+        while (index < triangles.length) {
+            temp = new Triangle(new Point (generateNum(), generateNum()), new Point (generateNum(), generateNum()), new Point (generateNum(), generateNum()));
+            if (temp.getSquare() != 0) {
+                triangles[index] = temp;
+                index++;
+            }
         }
         return triangles;
     }

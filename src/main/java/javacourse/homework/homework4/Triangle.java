@@ -2,6 +2,11 @@ package javacourse.homework.homework4;
 
 public class Triangle {
 
+    public static final int TYPE_ISOSCELES = 1;
+    public static final int TYPE_EQUILATERAL = 2;
+    public static final int TYPE_RIGHT = 3;
+    public static final int TYPE_ARBITRARY = 4;
+
     private Point a;
     private Point b;
     private Point c;
@@ -17,6 +22,25 @@ public class Triangle {
         return "Triangle [a(" + a.getX() + "; " + a.getY() +
                ") b(" + b.getX() + "; " + b.getY() +
                ") c(" + c.getX() + "; " + c.getY() + ")]";
+    }
+
+    public int defineTypeTriangle() {
+        if (isIsoscelesTriangle()) {
+            return TYPE_ISOSCELES;
+        } else {
+            if (isEquilateralTriangle()) {
+                return TYPE_EQUILATERAL;
+            } else {
+                if (isRightTriangle()) {
+                    return TYPE_RIGHT;
+                } else {
+                    if (isArbitraryTriangle()) {
+                        return TYPE_ARBITRARY;
+                    }
+                }
+            }
+        }
+        return 0;
     }
 
     public float getPerimeter() {

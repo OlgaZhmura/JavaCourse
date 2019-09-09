@@ -50,11 +50,6 @@ import java.util.Scanner;
 
 public class MainProgram {
 
-    private static final int TYPE_ISOSCELES = 1;
-    private static final int TYPE_EQUILATERAL = 2;
-    private static final int TYPE_RIGHT = 3;
-    private static final int TYPE_ARBITRARY = 4;
-
     public static void main(String[] args) {
         MainProgram function = new MainProgram();
 
@@ -92,39 +87,12 @@ public class MainProgram {
 
     private void defineType(int typeTrngl, Triangle[] trngls) {
         int count = 0;
-        switch (typeTrngl) {
-            case TYPE_ISOSCELES:
-                for (int i = 0; i < trngls.length; i++) {
-                    if (trngls[i].isIsoscelesTriangle()) {
-                        printTemplateResult(trngls[i], i);
-                        count++;
-                    }
-                }
-                break;
-            case TYPE_EQUILATERAL:
-                for (int i = 0; i < trngls.length; i++) {
-                    if (trngls[i].isEquilateralTriangle()) {
-                        printTemplateResult(trngls[i], i);
-                        count++;
-                    }
-                }
-                break;
-            case TYPE_RIGHT:
-                for (int i = 0; i < trngls.length; i++) {
-                    if (trngls[i].isRightTriangle()) {
-                        printTemplateResult(trngls[i], i);
-                        count++;
-                    }
-                }
-                break;
-            case TYPE_ARBITRARY:
-                for (int i = 0; i < trngls.length; i++) {
-                    if (trngls[i].isArbitraryTriangle()) {
-                        printTemplateResult(trngls[i], i);
-                        count++;
-                    }
-                }
-                break;
+
+        for (int i = 0; i < trngls.length; i++) {
+            if (trngls[i].defineTypeTriangle() == typeTrngl) {
+                printTemplateResult(trngls[i], i);
+                count++;
+            }
         }
         if(count == 0) {
             System.out.println("There are no necessary triangles in this array");

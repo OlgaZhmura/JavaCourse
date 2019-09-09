@@ -2,7 +2,8 @@ package javacourse.homework.homework4;
 
 public class Point {
 
-    private float x, y;
+    private final float x;
+    private final float y;
 
     public Point() {
         x = y = 0;
