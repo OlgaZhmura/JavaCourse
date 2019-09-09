@@ -27,20 +27,14 @@ public class Triangle {
     public int defineTypeTriangle() {
         if (isIsoscelesTriangle()) {
             return TYPE_ISOSCELES;
-        } else {
-            if (isEquilateralTriangle()) {
-                return TYPE_EQUILATERAL;
-            } else {
-                if (isRightTriangle()) {
-                    return TYPE_RIGHT;
-                } else {
-                    if (isArbitraryTriangle()) {
-                        return TYPE_ARBITRARY;
-                    }
-                }
-            }
         }
-        return 0;
+        if (isEquilateralTriangle()) {
+            return TYPE_EQUILATERAL;
+        }
+        if (isRightTriangle()) {
+            return TYPE_RIGHT;
+        }
+            return TYPE_ARBITRARY;
     }
 
     public float getPerimeter() {
