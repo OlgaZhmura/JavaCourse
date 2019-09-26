@@ -1,16 +1,19 @@
 package cmd;
 
 public class CommandFactory {
-    public Command getCommand (String input) {
+    public Command getCommand(String input) {
         String[] str = input.split(" ");
-        switch (str[0]){
+        switch (str[0]) {
             case "chdir":
-                break;
+                return new ChangeDirCommand(str);
             case "ls":
-                break;
+                return new ListCommand();
             case "exit":
-                break;
+                return new ExitCommand();
+            case "echo":
+                return new EchoCommand(str);
+            default:
+                return new UnknownCommand();
         }
-        return null;
     }
 }
